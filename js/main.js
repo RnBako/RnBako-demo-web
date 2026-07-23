@@ -5,19 +5,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const message = document.getElementById('form-message');
     const stickyCta = document.getElementById('sticky-cta');
     const hero = document.getElementById('hero');
-    const tariffInput = document.getElementById('form-tariff');
     const selectedTariff = document.getElementById('selected-tariff');
+    const purposeField = document.getElementById('purpose-field');
     const registerButtons = document.querySelectorAll('.btn-register');
 
     const trackGoal = (goalName, params) => {
         if (typeof ym !== 'function') {
             return;
         }
-
         try {
             ym(COUNTER_ID, 'reachGoal', goalName, params || {});
         } catch (error) {
-            // Метрика может быть ещё не готова — не блокируем UX.
+            // ignore
         }
     };
 
@@ -25,24 +24,19 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!registrationSection) {
             return;
         }
-
         registrationSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 
     const setTariff = (tariffName) => {
-        if (!(tariffInput instanceof HTMLInputElement)) {
-            return;
-        }
-
-        tariffInput.value = tariffName || '';
-
         if (!(selectedTariff instanceof HTMLElement)) {
             return;
         }
-
         if (tariffName) {
             selectedTariff.hidden = false;
             selectedTariff.textContent = `Выбран тариф: ${tariffName}`;
+            if (purposeField instanceof HTMLTextAreaElement && !purposeField.value.trim()) {
+                purposeField.value = `Тариф: ${tariffName}`;
+            }
         } else {
             selectedTariff.hidden = true;
             selectedTariff.textContent = '';
@@ -53,12 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', () => {
             const tariff = button.getAttribute('data-tariff') || '';
             const track = button.getAttribute('data-track') || 'register_click';
-
             setTariff(tariff);
             trackGoal(track, { tariff });
             trackGoal('click_register', { source: track, tariff });
             scrollToRegistration();
-
             const nameInput = form?.querySelector('input[name="name"]');
             if (nameInput instanceof HTMLInputElement) {
                 window.setTimeout(() => nameInput.focus(), 400);
@@ -70,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (element.classList.contains('btn-register')) {
             return;
         }
-
         element.addEventListener('click', () => {
             const track = element.getAttribute('data-track');
             if (track) {
@@ -81,10 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (stickyCta && hero) {
         const updateSticky = () => {
-            const heroBottom = hero.getBoundingClientRect().bottom;
-            stickyCta.hidden = heroBottom > 0;
+            stickyCta.hidden = hero.getBoundingClientRect().bottom > 0;
         };
-
         updateSticky();
         window.addEventListener('scroll', updateSticky, { passive: true });
         window.addEventListener('resize', updateSticky);
@@ -133,9 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error(data.error || 'Не удалось отправить заявку.');
             }
 
-            trackGoal('lead_submit', {
-                tariff: String(formData.get('tariff') || ''),
-            });
+            trackGoal('lead_submit');
 
             if (message) {
                 message.textContent = 'Заявка отправлена. Перезвоним в течение 15 минут и подтвердим место.';

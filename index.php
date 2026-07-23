@@ -342,7 +342,7 @@
                             <li>Сертификат и памятка</li>
                             <li>Кофе-брейки</li>
                         </ul>
-                        <button type="button" class="btn btn-register" data-tariff="Базовый" data-track="tariff_basic">Записаться на Базовый</button>
+                        <button type="button" class="btn btn-register" data-tariff="Базовый" data-track="tariff_basic">Записаться</button>
                     </article>
                     <article class="pricing-card featured">
                         <h3>Расширенный</h3>
@@ -353,7 +353,7 @@
                             <li>Набор перевязочных материалов</li>
                             <li>Дополнительный практический блок</li>
                         </ul>
-                        <button type="button" class="btn btn-register" data-tariff="Расширенный" data-track="tariff_extended">Записаться на Расширенный</button>
+                        <button type="button" class="btn btn-register" data-tariff="Расширенный" data-track="tariff_extended">Записаться</button>
                     </article>
                     <article class="pricing-card">
                         <h3>Корпоративный</h3>
@@ -364,7 +364,7 @@
                             <li>Консультация для HR или руководителя</li>
                             <li>Отчёт о прохождении для работодателя</li>
                         </ul>
-                        <button type="button" class="btn btn-register" data-tariff="Корпоративный" data-track="tariff_corp">Записаться на Корпоративный</button>
+                        <button type="button" class="btn btn-register" data-tariff="Корпоративный" data-track="tariff_corp">Записаться</button>
                     </article>
                 </div>
             </div>
@@ -375,7 +375,7 @@
                 <div class="registration-panel">
                     <h2 class="section-title">Записаться на курс</h2>
                     <p class="section-lead">
-                        Оставьте имя и телефон — перезвоним за 15 минут, подтвердим место и ответим на вопросы. Оплата после созвона.
+                        Оставьте заявку — перезвоним за 15 минут, подтвердим место и ответим на вопросы. Оплата после созвона.
                     </p>
                     <ul class="trust-list">
                         <li>Осталось 6 мест в группе 15 августа</li>
@@ -393,7 +393,6 @@
                         </blockquote>
                     </div>
                     <form class="form-grid" id="registration-form" action="api/submit.php" method="post">
-                        <input type="hidden" name="tariff" id="form-tariff" value="">
                         <p class="selected-tariff" id="selected-tariff" hidden></p>
                         <label>
                             Имя
@@ -401,15 +400,15 @@
                         </label>
                         <label>
                             Телефон
-                            <input type="tel" name="phone" required autocomplete="tel" inputmode="tel">
+                            <input type="tel" name="phone" required autocomplete="tel">
                         </label>
-                        <label class="optional-field">
-                            E-mail <span class="optional-mark">необязательно</span>
-                            <input type="email" name="email" autocomplete="email">
+                        <label>
+                            E-mail
+                            <input type="email" name="email" required autocomplete="email">
                         </label>
-                        <label class="optional-field">
-                            Цель прохождения курса <span class="optional-mark">необязательно</span>
-                            <textarea name="purpose" rows="3"></textarea>
+                        <label>
+                            Цель прохождения курса
+                            <textarea name="purpose" id="purpose-field" required></textarea>
                         </label>
                         <button type="submit" class="btn btn-primary">Отправить заявку</button>
                     </form>

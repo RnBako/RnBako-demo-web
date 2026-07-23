@@ -114,13 +114,6 @@ img {
     letter-spacing: 0.04em;
 }
 
-.hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 8px;
-}
-
 .hero-note {
     margin-top: 36px;
     padding: 18px 24px;
@@ -129,47 +122,71 @@ img {
     color: var(--heading);
 }
 
-.sticky-cta {
-    position: sticky;
-    top: 0;
-    z-index: 40;
-    background: rgba(250, 247, 245, 0.94);
-    border-bottom: 1px solid #e5dfd6;
-    backdrop-filter: blur(8px);
+.features-grid,
+.injury-grid,
+.instructors-grid,
+.pricing-grid {
+    display: grid;
+    gap: 22px;
 }
 
-.sticky-cta[hidden] {
-    display: none !important;
+.features-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
-.sticky-cta-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 12px 0;
-}
-
-.sticky-cta-text {
-    color: var(--heading);
-    font-weight: 600;
-    font-size: 0.95rem;
-}
-
-.btn-primary {
-    background: #7eb6cc;
-    color: var(--heading);
-}
-
-.btn-secondary {
+.feature-card,
+.injury-card,
+.instructor-card,
+.pricing-card,
+.program-module,
+.legal-block {
     background: var(--white);
-    color: var(--heading);
-    box-shadow: inset 0 0 0 1px #d5cfc6;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: var(--shadow);
 }
 
-.btn-compact {
-    padding: 10px 18px;
-    white-space: nowrap;
+.feature-card:nth-child(1) { background: linear-gradient(180deg, #ffffff, #eef7fb); }
+.feature-card:nth-child(2) { background: linear-gradient(180deg, #ffffff, #eef8ef); }
+.feature-card:nth-child(3) { background: linear-gradient(180deg, #ffffff, #fff0f5); }
+.feature-card:nth-child(4) { background: linear-gradient(180deg, #ffffff, #faf2e8); }
+
+.feature-card h3,
+.injury-card h3,
+.instructor-card h3,
+.pricing-card h3,
+.program-module h3 {
+    margin: 0 0 12px;
+    color: var(--heading);
+}
+
+.feature-card,
+.injury-card {
+    transition: box-shadow 0.2s ease;
+}
+
+.program-module {
+    transition: box-shadow 0.2s ease;
+}
+
+.program-list {
+    display: grid;
+    gap: 18px;
+}
+
+.program-module {
+    border-left: 6px solid var(--blue);
+}
+
+.program-module:nth-child(2) { border-left-color: var(--mint); }
+.program-module:nth-child(3) { border-left-color: var(--pink); }
+.program-module:nth-child(4) { border-left-color: var(--peach); }
+.program-module:nth-child(5) { border-left-color: var(--blue); }
+.program-module:nth-child(6) { border-left-color: var(--mint); }
+
+.program-intro {
+    margin-bottom: 28px;
+    font-size: 1.05rem;
 }
 
 .program-toc {
@@ -219,6 +236,56 @@ img {
 
 .program-module p {
     margin: 16px 0 0;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.sticky-cta {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: rgba(250, 247, 245, 0.94);
+    border-bottom: 1px solid #e5dfd6;
+    backdrop-filter: blur(8px);
+}
+
+.sticky-cta[hidden] {
+    display: none !important;
+}
+
+.sticky-cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 0;
+}
+
+.sticky-cta-text {
+    color: var(--heading);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background: #7eb6cc;
+    color: var(--heading);
+}
+
+.btn-secondary {
+    background: var(--white);
+    color: var(--heading);
+    box-shadow: inset 0 0 0 1px #d5cfc6;
+}
+
+.btn-compact {
+    padding: 10px 18px;
+    white-space: nowrap;
 }
 
 .injury-grid-compact {
@@ -309,90 +376,6 @@ img {
     background: #eef8ef;
     color: var(--heading);
     font-weight: 600;
-}
-
-.optional-field .optional-mark {
-    font-weight: 500;
-    color: #8a8580;
-    font-size: 0.88rem;
-}
-
-.form-grid textarea {
-    min-height: 88px;
-}
-
-.features-grid,
-.injury-grid,
-.instructors-grid,
-.pricing-grid {
-    display: grid;
-    gap: 22px;
-}
-
-.features-grid {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-}
-
-.feature-card,
-.injury-card,
-.instructor-card,
-.pricing-card,
-.program-module,
-.legal-block {
-    background: var(--white);
-    border-radius: 20px;
-    padding: 28px;
-    box-shadow: var(--shadow);
-}
-
-.feature-card:nth-child(1) { background: linear-gradient(180deg, #ffffff, #eef7fb); }
-.feature-card:nth-child(2) { background: linear-gradient(180deg, #ffffff, #eef8ef); }
-.feature-card:nth-child(3) { background: linear-gradient(180deg, #ffffff, #fff0f5); }
-.feature-card:nth-child(4) { background: linear-gradient(180deg, #ffffff, #faf2e8); }
-
-.feature-card h3,
-.injury-card h3,
-.instructor-card h3,
-.pricing-card h3,
-.program-module h3 {
-    margin: 0 0 12px;
-    color: var(--heading);
-}
-
-.feature-card,
-.injury-card {
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.feature-card:hover,
-.injury-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 16px 36px rgba(45, 52, 54, 0.12);
-}
-
-.program-module {
-    transition: box-shadow 0.2s ease;
-}
-
-.program-list {
-    display: grid;
-    gap: 18px;
-}
-
-.program-module {
-    border-left: 6px solid var(--blue);
-}
-
-.program-module:nth-child(2) { border-left-color: var(--mint); }
-.program-module:nth-child(3) { border-left-color: var(--pink); }
-.program-module:nth-child(4) { border-left-color: var(--peach); }
-.program-module:nth-child(5) { border-left-color: var(--blue); }
-.program-module:nth-child(6) { border-left-color: var(--mint); }
-
-.program-intro {
-    margin-bottom: 28px;
-    font-size: 1.05rem;
 }
 
 .injury-grid {
