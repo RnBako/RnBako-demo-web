@@ -17,6 +17,7 @@ $name = trim((string) ($_POST['name'] ?? ''));
 $phone = trim((string) ($_POST['phone'] ?? ''));
 $email = trim((string) ($_POST['email'] ?? ''));
 $purpose = trim((string) ($_POST['purpose'] ?? ''));
+$tariff = trim((string) ($_POST['tariff'] ?? ''));
 
 if ($name === '') {
     echo json_encode(['ok' => false, 'error' => 'Укажите имя.'], JSON_UNESCAPED_UNICODE);
@@ -28,14 +29,19 @@ if ($phone === '') {
     exit;
 }
 
-if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+if ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     echo json_encode(['ok' => false, 'error' => 'Укажите корректный e-mail.'], JSON_UNESCAPED_UNICODE);
     exit;
 }
 
+if ($email === '') {
+    $email = 'no-email@local';
+}
+
 if ($purpose === '') {
-    echo json_encode(['ok' => false, 'error' => 'Укажите цель прохождения курса.'], JSON_UNESCAPED_UNICODE);
-    exit;
+    $purpose = $tariff !== '' ? ('Тариф: ' . $tariff) : 'Не указано';
+} elseif ($tariff !== '') {
+    $purpose = 'Тариф: ' . $tariff . '. ' . $purpose;
 }
 
 try {
