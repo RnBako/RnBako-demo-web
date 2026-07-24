@@ -38,7 +38,11 @@ img {
 }
 
 .section {
-    padding: 72px 0;
+    padding: 56px 0;
+}
+
+.section-compact {
+    padding: 40px 0;
 }
 
 .section-title {
@@ -419,8 +423,10 @@ img {
 
 .emotional-photo img {
     width: 100%;
-    height: min(70vh, 560px);
+    max-height: 360px;
+    height: 360px;
     object-fit: cover;
+    display: block;
 }
 
 .instructors-grid {

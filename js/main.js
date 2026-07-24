@@ -83,8 +83,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     if (!form) {
+        setTariff('Базовый');
         return;
     }
+
+    setTariff('Базовый');
 
     const firstField = form.querySelector('input[name="name"]');
     if (firstField instanceof HTMLInputElement) {
