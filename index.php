@@ -19,9 +19,10 @@
                 медиков. Практика с инструкторами скорой помощи.
             </p>
             <div class="hero-actions">
-                <a class="btn btn-primary" href="#registration" data-track="hero_register">Записаться</a>
+                <a class="btn btn-primary" href="#registration" data-track="hero_register">Записаться — имя и телефон</a>
                 <a class="btn btn-secondary" href="#program" data-track="hero_program">Смотреть программу</a>
             </div>
+            <p class="hero-cta-note">Перезвоним за 15 минут · оплата после подтверждения места</p>
             <div class="meta-grid">
                 <div class="meta-card">
                     <strong>Дата</strong>
@@ -243,8 +244,8 @@
                     </article>
                 </div>
                 <div class="mid-cta">
-                    <p>Разобрать это на практике с инструкторами скорой помощи</p>
-                    <a class="btn btn-primary" href="#registration" data-track="injuries_cta">Записаться на курс</a>
+                    <p>Разобрать это на практике — заявка за 20 секунд (имя и телефон)</p>
+                    <a class="btn btn-primary" href="#registration" data-track="injuries_cta">Оставить заявку</a>
                 </div>
             </div>
         </section>
@@ -253,30 +254,31 @@
             <div class="container">
                 <h2 class="section-title">Юридические аспекты</h2>
                 <p class="section-lead">
-                    Многие люди боятся помогать из-за страха юридической ответственности. На курсе
-                    мы отдельно разбираем, что говорит закон и как действовать правильно.
+                    Разбираем закон о добросовестном помощнике — без страха помогать в разумных пределах.
                 </p>
-                <div class="legal-block">
-                    <h3>Добросовестный помощник</h3>
-                    <p>
-                        В России действует принцип добросовестного помощника: если вы помогаете пострадавшему
-                        в разумных пределах своих возможностей и без грубой неосторожности, закон защищает
-                        вас от необоснованных претензий.
-                    </p>
-                </div>
-                <div class="legal-block">
-                    <h3>Границы ответственности</h3>
-                    <p>
-                        Мы разбираем, какие действия считаются разумными, когда нужно дождаться медиков,
-                        и как фиксировать обстоятельства происшествия, если вы оказались свидетелем или участником помощи.
-                    </p>
-                </div>
-                <div class="legal-block">
-                    <h3>Документирование и вызов служб</h3>
-                    <p>
-                        Как правильно передать информацию диспетчеру, что сообщить медикам по прибытии и
-                        какие данные важно сохранить для дальнейшего разбирательства или страхового случая.
-                    </p>
+                <div class="legal-list">
+                    <details class="legal-block" open>
+                        <summary><h3>Добросовестный помощник</h3></summary>
+                        <p>
+                            В России действует принцип добросовестного помощника: если вы помогаете пострадавшему
+                            в разумных пределах своих возможностей и без грубой неосторожности, закон защищает
+                            вас от необоснованных претензий.
+                        </p>
+                    </details>
+                    <details class="legal-block">
+                        <summary><h3>Границы ответственности</h3></summary>
+                        <p>
+                            Мы разбираем, какие действия считаются разумными, когда нужно дождаться медиков,
+                            и как фиксировать обстоятельства происшествия, если вы оказались свидетелем или участником помощи.
+                        </p>
+                    </details>
+                    <details class="legal-block">
+                        <summary><h3>Документирование и вызов служб</h3></summary>
+                        <p>
+                            Как правильно передать информацию диспетчеру, что сообщить медикам по прибытии и
+                            какие данные важно сохранить для дальнейшего разбирательства или страхового случая.
+                        </p>
+                    </details>
                 </div>
             </div>
         </section>
@@ -293,7 +295,7 @@
                 </p>
                 <div class="instructors-grid">
                     <article class="instructor-card">
-                        <div class="instructor-photo" aria-hidden="true">АК</div>
+                        <img class="instructor-photo" src="images/instructor-kravtsov.jpg" alt="Алексей Кравцов" width="160" height="160">
                         <h3>Алексей Кравцов</h3>
                         <p class="instructor-title">Врач скорой медицинской помощи, стаж 14 лет</p>
                         <ul class="credentials">
@@ -303,7 +305,7 @@
                         </ul>
                     </article>
                     <article class="instructor-card">
-                        <div class="instructor-photo" aria-hidden="true">МС</div>
+                        <img class="instructor-photo" src="images/instructor-sokolova.jpg" alt="Марина Соколова" width="160" height="160">
                         <h3>Марина Соколова</h3>
                         <p class="instructor-title">Инструктор РКК, фельдшер, стаж 11 лет</p>
                         <ul class="credentials">
@@ -313,7 +315,7 @@
                         </ul>
                     </article>
                     <article class="instructor-card">
-                        <div class="instructor-photo" aria-hidden="true">ДН</div>
+                        <img class="instructor-photo" src="images/instructor-novikov.jpg" alt="Дмитрий Новиков" width="160" height="160">
                         <h3>Дмитрий Новиков</h3>
                         <p class="instructor-title">Парамедик, наставник учебного центра</p>
                         <ul class="credentials">
@@ -375,7 +377,7 @@
                 <div class="registration-panel">
                     <h2 class="section-title">Записаться на курс</h2>
                     <p class="section-lead">
-                        Оставьте заявку — перезвоним за 15 минут, подтвердим место и ответим на вопросы. Оплата после созвона.
+                        Достаточно имени и телефона — перезвоним за 15 минут и подтвердим место. Оплата после созвона.
                     </p>
                     <ul class="trust-list">
                         <li>Осталось 6 мест в группе 15 августа</li>
@@ -393,6 +395,7 @@
                         </blockquote>
                     </div>
                     <form class="form-grid" id="registration-form" action="api/submit.php" method="post">
+                        <input type="hidden" name="tariff" id="tariff-field" value="">
                         <p class="selected-tariff" id="selected-tariff" hidden></p>
                         <label>
                             Имя
@@ -400,16 +403,19 @@
                         </label>
                         <label>
                             Телефон
-                            <input type="tel" name="phone" required autocomplete="tel">
+                            <input type="tel" name="phone" required autocomplete="tel" inputmode="tel">
                         </label>
-                        <label>
-                            E-mail
-                            <input type="email" name="email" required autocomplete="email">
-                        </label>
-                        <label>
-                            Цель прохождения курса
-                            <textarea name="purpose" id="purpose-field" required></textarea>
-                        </label>
+                        <details class="optional-fields">
+                            <summary>Дополнительно (необязательно)</summary>
+                            <label class="optional-field">
+                                E-mail
+                                <input type="email" name="email" autocomplete="email">
+                            </label>
+                            <label class="optional-field">
+                                Цель прохождения курса
+                                <textarea name="purpose" id="purpose-field" rows="3"></textarea>
+                            </label>
+                        </details>
                         <button type="submit" class="btn btn-primary">Отправить заявку</button>
                     </form>
                     <p class="form-message" id="form-message" aria-live="polite"></p>

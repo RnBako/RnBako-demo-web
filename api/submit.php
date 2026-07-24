@@ -34,6 +34,7 @@ if ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
+// Поля email/purpose остаются в форме, но необязательны для конверсии.
 if ($email === '') {
     $email = 'no-email@local';
 }

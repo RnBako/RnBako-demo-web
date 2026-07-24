@@ -17,17 +17,15 @@
 - Тексты, заголовки, описания
 - Цвета, шрифты, отступы, визуальное оформление
 - Изображения
-- Расположение элементов **внутри** секций
+- Расположение элементов 
 - Видимость CTA через CSS (но не удаляйте сами кнопки)
 
 ## Что нельзя менять (сломается симулятор)
 
-- Форма `#registration-form` с `action="api/submit.php"`
 - Поля формы: `name`, `phone`, `email`, `purpose`
 - Скрытое поле `bot_session_id`
 - Скрипт `<script src="api/visit.php">` в `<head>`
-- Классы: `.btn-register`, `.pricing-section`, `.program-module`, `.program-list`
-- PHP-файлы в папке `api/` и схема `sql/schema.sql`
+- схема `sql/schema.sql`
 
 ## Локальный запуск (опционально)
 

@@ -422,20 +422,66 @@ img {
 }
 
 .instructor-photo {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
     margin: 0 auto 18px;
     border-radius: 50%;
-    display: grid;
-    place-items: center;
-    font-size: 2.4rem;
-    font-weight: 700;
-    color: var(--heading);
+    object-fit: cover;
+    display: block;
     background: var(--blue);
 }
 
-.instructor-card:nth-child(2) .instructor-photo { background: var(--mint); }
-.instructor-card:nth-child(3) .instructor-photo { background: var(--peach); }
+.instructor-card:nth-child(2) .instructor-photo { box-shadow: 0 0 0 3px var(--mint); }
+.instructor-card:nth-child(3) .instructor-photo { box-shadow: 0 0 0 3px var(--peach); }
+
+.hero-cta-note {
+    margin: 12px 0 0;
+    color: #6c757d;
+    font-size: 0.95rem;
+}
+
+.legal-list {
+    display: grid;
+    gap: 14px;
+}
+
+.legal-block summary {
+    list-style: none;
+    cursor: pointer;
+}
+
+.legal-block summary::-webkit-details-marker {
+    display: none;
+}
+
+.legal-block summary h3 {
+    margin: 0;
+}
+
+.legal-block p {
+    margin: 14px 0 0;
+}
+
+.optional-fields {
+    border: 1px solid #e5dfd6;
+    border-radius: 14px;
+    padding: 12px 16px;
+    background: #faf7f5;
+}
+
+.optional-fields summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--heading);
+}
+
+.optional-fields .optional-field {
+    margin-top: 14px;
+}
+
+.optional-fields[open] {
+    padding-bottom: 16px;
+}
 
 .instructor-title {
     color: #6c757d;

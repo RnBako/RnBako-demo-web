@@ -27,9 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
         registrationSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 
+    const tariffInput = form?.querySelector('input[name="tariff"]');
+
     const setTariff = (tariffName) => {
         if (!(selectedTariff instanceof HTMLElement)) {
             return;
+        }
+        if (tariffInput instanceof HTMLInputElement) {
+            tariffInput.value = tariffName || '';
         }
         if (tariffName) {
             selectedTariff.hidden = false;
