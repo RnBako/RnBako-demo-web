@@ -405,17 +405,14 @@
                             Телефон
                             <input type="tel" name="phone" required autocomplete="tel" inputmode="tel">
                         </label>
-                        <details class="optional-fields">
-                            <summary>Дополнительно (необязательно)</summary>
-                            <label class="optional-field">
-                                E-mail
-                                <input type="email" name="email" autocomplete="email">
-                            </label>
-                            <label class="optional-field">
-                                Цель прохождения курса
-                                <textarea name="purpose" id="purpose-field" rows="3"></textarea>
-                            </label>
-                        </details>
+                        <label>
+                            E-mail <span class="field-optional">(необязательно)</span>
+                            <input type="email" name="email" autocomplete="email">
+                        </label>
+                        <label>
+                            Цель прохождения курса <span class="field-optional">(необязательно)</span>
+                            <textarea name="purpose" id="purpose-field" rows="3"></textarea>
+                        </label>
                         <button type="submit" class="btn btn-primary">Отправить заявку</button>
                     </form>
                     <p class="form-message" id="form-message" aria-live="polite"></p>
