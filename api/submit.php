@@ -29,19 +29,14 @@ if ($phone === '') {
     exit;
 }
 
-if ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     echo json_encode(['ok' => false, 'error' => 'Укажите корректный e-mail.'], JSON_UNESCAPED_UNICODE);
     exit;
 }
 
-// Поля email/purpose остаются в форме, но необязательны для конверсии.
-if ($email === '') {
-    $email = 'no-email@local';
-}
-
 if ($purpose === '') {
-    $purpose = $tariff !== '' ? ('Тариф: ' . $tariff) : 'Не указано';
-} elseif ($tariff !== '') {
+    $purpose = $tariff !== '' ? ('Тариф: ' . $tariff) : 'Запись на курс первой помощи';
+} elseif ($tariff !== '' && strpos($purpose, $tariff) === false) {
     $purpose = 'Тариф: ' . $tariff . '. ' . $purpose;
 }
 

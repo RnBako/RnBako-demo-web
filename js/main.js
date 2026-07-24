@@ -3,11 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const registrationSection = document.getElementById('registration');
     const form = document.getElementById('registration-form');
     const message = document.getElementById('form-message');
-    const stickyCta = document.getElementById('sticky-cta');
-    const hero = document.getElementById('hero');
     const selectedTariff = document.getElementById('selected-tariff');
     const purposeField = document.getElementById('purpose-field');
+    const tariffInput = document.getElementById('tariff-field');
     const registerButtons = document.querySelectorAll('.btn-register');
+    const defaultPurpose = 'Запись на курс первой помощи';
 
     const trackGoal = (goalName, params) => {
         if (typeof ym !== 'function') {
@@ -27,25 +27,32 @@ document.addEventListener('DOMContentLoaded', () => {
         registrationSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 
-    const tariffInput = form?.querySelector('input[name="tariff"]');
-
     const setTariff = (tariffName) => {
-        if (!(selectedTariff instanceof HTMLElement)) {
-            return;
-        }
         if (tariffInput instanceof HTMLInputElement) {
             tariffInput.value = tariffName || '';
         }
-        if (tariffName) {
-            selectedTariff.hidden = false;
-            selectedTariff.textContent = `Выбран тариф: ${tariffName}`;
-            if (purposeField instanceof HTMLTextAreaElement && !purposeField.value.trim()) {
-                purposeField.value = `Тариф: ${tariffName}`;
-            }
-        } else {
-            selectedTariff.hidden = true;
-            selectedTariff.textContent = '';
+
+        if (purposeField instanceof HTMLInputElement || purposeField instanceof HTMLTextAreaElement) {
+            purposeField.value = tariffName
+                ? `Тариф: ${tariffName}. ${defaultPurpose}`
+                : defaultPurpose;
         }
+
+        if (selectedTariff instanceof HTMLElement) {
+            if (tariffName) {
+                selectedTariff.textContent = `Выбран тариф «${tariffName}». Заполните форму ниже.`;
+                selectedTariff.classList.add('has-selection');
+            } else {
+                selectedTariff.textContent = 'Выберите тариф выше — здесь появится выбранный формат.';
+                selectedTariff.classList.remove('has-selection');
+            }
+        }
+
+        registerButtons.forEach((button) => {
+            const isActive = (button.getAttribute('data-tariff') || '') === tariffName;
+            button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            button.closest('.pricing-card')?.classList.toggle('is-selected', isActive);
+        });
     };
 
     registerButtons.forEach((button) => {
@@ -74,15 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-    if (stickyCta && hero) {
-        const updateSticky = () => {
-            stickyCta.hidden = hero.getBoundingClientRect().bottom > 0;
-        };
-        updateSticky();
-        window.addEventListener('scroll', updateSticky, { passive: true });
-        window.addEventListener('resize', updateSticky);
-    }
 
     if (!form) {
         return;
@@ -130,11 +128,14 @@ document.addEventListener('DOMContentLoaded', () => {
             trackGoal('lead_submit');
 
             if (message) {
-                message.textContent = 'Заявка отправлена. Перезвоним в течение 15 минут и подтвердим место.';
+                message.textContent = 'Заявка отправлена. Мы свяжемся с вами в ближайшее время.';
                 message.className = 'form-message success';
             }
 
             form.reset();
+            if (purposeField instanceof HTMLInputElement || purposeField instanceof HTMLTextAreaElement) {
+                purposeField.value = defaultPurpose;
+            }
             setTariff('');
         } catch (error) {
             if (message) {
